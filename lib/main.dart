@@ -12,12 +12,12 @@ class SimpleQuizApp extends StatefulWidget {
 }
 
 class _SimpleQuizAppState extends State<SimpleQuizApp> {
-  var questionIndex = 0;
+  var _questionIndex = 0;
 
-  void answerQuestion() {
-    if (questionIndex < questions.length - 1) {
+  void _answerQuestion() {
+    if (_questionIndex < questions.length - 1) {
       setState(() {
-        questionIndex++;
+        _questionIndex++;
       });
     }
   }
@@ -38,17 +38,17 @@ class _SimpleQuizAppState extends State<SimpleQuizApp> {
         ),
         body: Column(
           children: [
-            Text(questions[questionIndex]),
+            Text(questions[_questionIndex]),
             RaisedButton(
-              onPressed: answerQuestion,
+              onPressed: _answerQuestion,
               child: const Text('Answer 1'),
             ),
             RaisedButton(
-              onPressed: answerQuestion,
+              onPressed: _answerQuestion,
               child: const Text('Answer 2'),
             ),
             RaisedButton(
-              onPressed: answerQuestion,
+              onPressed: _answerQuestion,
               child: const Text('Answer 3'),
             ),
           ],
