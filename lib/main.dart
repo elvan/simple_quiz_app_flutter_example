@@ -33,11 +33,15 @@ class SimpleQuizApp extends StatelessWidget {
               child: const Text('Answer 1'),
             ),
             RaisedButton(
-              onPressed: answerQuestion,
+              onPressed: () {
+                print('Answer 2 chosen!');
+              },
               child: const Text('Answer 2'),
             ),
             RaisedButton(
-              onPressed: answerQuestion,
+              onPressed: () {
+                print('Answer 3 chosen!');
+              },
               child: const Text('Answer 3'),
             ),
           ],
