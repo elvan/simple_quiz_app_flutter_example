@@ -39,25 +39,29 @@ class _SimpleQuizAppState extends State<SimpleQuizApp> {
         appBar: AppBar(
           title: const Text('Simple Quiz'),
         ),
-        body: Column(
-          children: [
-            Question(_questions[_questionIndex]['questionText'] as String),
-            ...(_questions[_questionIndex]['answers'] as List<String>)
-                .map((answer) => Answer(_answerQuestion, answer))
-                .toList(),
-          ],
-        ),
+        body: _buildBody(),
       ),
     );
   }
 
   void _answerQuestion() {
     setState(() {
-      if (_questionIndex < _questions.length - 1) {
+      if (_questionIndex < _questions.length) {
         _questionIndex++;
-      } else {
-        _questionIndex = 0;
       }
     });
+  }
+
+  Widget _buildBody() {
+    return _questionIndex < _questions.length
+        ? Column(
+            children: [
+              Question(_questions[_questionIndex]['questionText'] as String),
+              ...(_questions[_questionIndex]['answers'] as List<String>)
+                  .map((answer) => Answer(_answerQuestion, answer))
+                  .toList(),
+            ],
+          )
+        : const Center(child: Text('You\'ve reached the end of the quiz.'));
   }
 }
