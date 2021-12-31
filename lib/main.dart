@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'question.dart';
+
 void main() {
   runApp(const SimpleQuizApp());
 }
@@ -41,15 +43,15 @@ class _SimpleQuizAppState extends State<SimpleQuizApp> {
             Text(questions[_questionIndex]),
             RaisedButton(
               onPressed: _answerQuestion,
-              child: const Text('Answer 1'),
+              child: const Question('Answer 1'),
             ),
             RaisedButton(
               onPressed: _answerQuestion,
-              child: const Text('Answer 2'),
+              child: const Question('Answer 2'),
             ),
             RaisedButton(
               onPressed: _answerQuestion,
-              child: const Text('Answer 3'),
+              child: const Question('Answer 3'),
             ),
           ],
         ),
