@@ -8,7 +8,7 @@ void main() {
 }
 
 class SimpleQuizApp extends StatefulWidget {
-  const SimpleQuizApp({Key? key}) : super(key: key);
+  const SimpleQuizApp({Key key}) : super(key: key);
 
   @override
   State<SimpleQuizApp> createState() => _SimpleQuizAppState();
@@ -41,7 +41,7 @@ class _SimpleQuizAppState extends State<SimpleQuizApp> {
         ),
         body: Column(
           children: [
-            Question(_questions[_questionIndex]['questionText'].toString()),
+            Question(_questions[_questionIndex]['questionText'] as String),
             ...(_questions[_questionIndex]['answers'] as List<String>)
                 .map((answer) => Answer(_answerQuestion, answer))
                 .toList(),
