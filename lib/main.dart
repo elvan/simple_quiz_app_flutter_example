@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-import 'answer.dart';
-import 'question.dart';
+import 'quiz.dart';
+import 'result.dart';
 
 void main() {
   runApp(const SimpleQuizApp());
 }
 
 class SimpleQuizApp extends StatefulWidget {
-  const SimpleQuizApp({Key key}) : super(key: key);
+  const SimpleQuizApp({Key? key}) : super(key: key);
 
   @override
   State<SimpleQuizApp> createState() => _SimpleQuizAppState();
@@ -54,14 +54,11 @@ class _SimpleQuizAppState extends State<SimpleQuizApp> {
 
   Widget _buildBody() {
     return _questionIndex < _questions.length
-        ? Column(
-            children: [
-              Question(_questions[_questionIndex]['questionText'] as String),
-              ...(_questions[_questionIndex]['answers'] as List<String>)
-                  .map((answer) => Answer(_answerQuestion, answer))
-                  .toList(),
-            ],
+        ? Quiz(
+            answerQuestion: _answerQuestion,
+            questionIndex: _questionIndex,
+            questions: _questions,
           )
-        : const Center(child: Text('You\'ve reached the end of the quiz.'));
+        : const Result();
   }
 }
