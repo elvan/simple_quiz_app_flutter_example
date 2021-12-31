@@ -1,16 +1,25 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(SimpleQuizApp());
+  runApp(const SimpleQuizApp());
 }
 
-class SimpleQuizApp extends StatelessWidget {
-  SimpleQuizApp({Key? key}) : super(key: key);
+class SimpleQuizApp extends StatefulWidget {
+  const SimpleQuizApp({Key? key}) : super(key: key);
 
+  @override
+  State<SimpleQuizApp> createState() => _SimpleQuizAppState();
+}
+
+class _SimpleQuizAppState extends State<SimpleQuizApp> {
   var questionIndex = 0;
 
   void answerQuestion() {
-    questionIndex = questionIndex + 1;
+    if (questionIndex < questions.length - 1) {
+      setState(() {
+        questionIndex++;
+      });
+    }
   }
 
   final questions = [
