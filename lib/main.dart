@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:simple_quiz_app/answer.dart';
 
+import 'answer.dart';
 import 'question.dart';
 
 void main() {
@@ -17,7 +17,7 @@ class SimpleQuizApp extends StatefulWidget {
 class _SimpleQuizAppState extends State<SimpleQuizApp> {
   var _questionIndex = 0;
 
-  final _questions = [
+  final _questions = const [
     {
       'questionText': 'What\'s your favorite color?',
       'answers': ['Black', 'Red', 'Green', 'White']
