@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const SimpleQuizApp());
+  runApp(SimpleQuizApp());
 }
 
 class SimpleQuizApp extends StatelessWidget {
-  const SimpleQuizApp({Key? key}) : super(key: key);
+  SimpleQuizApp({Key? key}) : super(key: key);
+
+  final questions = [
+    'What\'s your favorite color?',
+    'What\'s your favorite animal?',
+    'What\'s your favorite food?',
+    'What\'s your favorite sport?',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +21,22 @@ class SimpleQuizApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Simple Quiz'),
         ),
-        body: const Center(
-          child: Text('Simple Quiz'),
+        body: Column(
+          children: [
+            const Text('The question!'),
+            RaisedButton(
+              onPressed: () {},
+              child: const Text('Answer 1'),
+            ),
+            RaisedButton(
+              onPressed: () {},
+              child: const Text('Answer 2'),
+            ),
+            RaisedButton(
+              onPressed: () {},
+              child: const Text('Answer 3'),
+            ),
+          ],
         ),
       ),
     );
