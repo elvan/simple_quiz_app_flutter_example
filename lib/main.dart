@@ -52,10 +52,12 @@ class _SimpleQuizAppState extends State<SimpleQuizApp> {
   }
 
   void _answerQuestion() {
-    if (_questionIndex < _questions.length - 1) {
-      setState(() {
+    setState(() {
+      if (_questionIndex < _questions.length - 1) {
         _questionIndex++;
-      });
-    }
+      } else {
+        _questionIndex = 0;
+      }
+    });
   }
 }
