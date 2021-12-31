@@ -7,6 +7,10 @@ void main() {
 class SimpleQuizApp extends StatelessWidget {
   SimpleQuizApp({Key? key}) : super(key: key);
 
+  void answerQuestion() {
+    print('Answer chosen!');
+  }
+
   final questions = [
     'What\'s your favorite color?',
     'What\'s your favorite animal?',
@@ -25,15 +29,15 @@ class SimpleQuizApp extends StatelessWidget {
           children: [
             const Text('The question!'),
             RaisedButton(
-              onPressed: () {},
+              onPressed: answerQuestion,
               child: const Text('Answer 1'),
             ),
             RaisedButton(
-              onPressed: () {},
+              onPressed: answerQuestion,
               child: const Text('Answer 2'),
             ),
             RaisedButton(
-              onPressed: () {},
+              onPressed: answerQuestion,
               child: const Text('Answer 3'),
             ),
           ],
