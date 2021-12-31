@@ -7,8 +7,10 @@ void main() {
 class SimpleQuizApp extends StatelessWidget {
   SimpleQuizApp({Key? key}) : super(key: key);
 
+  var questionIndex = 0;
+
   void answerQuestion() {
-    print('Answer chosen!');
+    questionIndex = questionIndex + 1;
   }
 
   final questions = [
@@ -27,21 +29,17 @@ class SimpleQuizApp extends StatelessWidget {
         ),
         body: Column(
           children: [
-            const Text('The question!'),
+            Text(questions[questionIndex]),
             RaisedButton(
               onPressed: answerQuestion,
               child: const Text('Answer 1'),
             ),
             RaisedButton(
-              onPressed: () {
-                print('Answer 2 chosen!');
-              },
+              onPressed: answerQuestion,
               child: const Text('Answer 2'),
             ),
             RaisedButton(
-              onPressed: () {
-                print('Answer 3 chosen!');
-              },
+              onPressed: answerQuestion,
               child: const Text('Answer 3'),
             ),
           ],
