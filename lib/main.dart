@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:simple_quiz_app/answer.dart';
 
 import 'question.dart';
 
@@ -14,17 +15,9 @@ class SimpleQuizApp extends StatefulWidget {
 }
 
 class _SimpleQuizAppState extends State<SimpleQuizApp> {
-  var questionIndex = 0;
+  var _questionIndex = 0;
 
-  void answerQuestion() {
-    if (questionIndex < questions.length - 1) {
-      setState(() {
-        questionIndex++;
-      });
-    }
-  }
-
-  final questions = [
+  final _questions = [
     'What\'s your favorite color?',
     'What\'s your favorite animal?',
     'What\'s your favorite food?',
@@ -40,22 +33,21 @@ class _SimpleQuizAppState extends State<SimpleQuizApp> {
         ),
         body: Column(
           children: [
-            Question(questions[questionIndex]),
-            RaisedButton(
-              onPressed: answerQuestion,
-              child: const Text('Answer 1'),
-            ),
-            RaisedButton(
-              onPressed: answerQuestion,
-              child: const Text('Answer 2'),
-            ),
-            RaisedButton(
-              onPressed: answerQuestion,
-              child: const Text('Answer 3'),
-            ),
+            Question(_questions[_questionIndex]),
+            Answer(_answerQuestion),
+            Answer(_answerQuestion),
+            Answer(_answerQuestion),
           ],
         ),
       ),
     );
+  }
+
+  void _answerQuestion() {
+    if (_questionIndex < _questions.length - 1) {
+      setState(() {
+        _questionIndex++;
+      });
+    }
   }
 }
