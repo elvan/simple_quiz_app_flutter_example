@@ -18,10 +18,18 @@ class _SimpleQuizAppState extends State<SimpleQuizApp> {
   var _questionIndex = 0;
 
   final _questions = [
-    'What\'s your favorite color?',
-    'What\'s your favorite animal?',
-    'What\'s your favorite food?',
-    'What\'s your favorite sport?',
+    {
+      'questionText': 'What\'s your favorite color?',
+      'answers': ['Black', 'Red', 'Green', 'White']
+    },
+    {
+      'questionText': 'What\'s your favorite animal?',
+      'answers': ['Rabbit', 'Snake', 'Elephant', 'Lion']
+    },
+    {
+      'questionText': 'What\'s your favorite food?',
+      'answers': ['Pizza', 'Steak', 'Rice', 'Noodles']
+    },
   ];
 
   @override
@@ -33,10 +41,10 @@ class _SimpleQuizAppState extends State<SimpleQuizApp> {
         ),
         body: Column(
           children: [
-            Question(_questions[_questionIndex]),
-            Answer(_answerQuestion),
-            Answer(_answerQuestion),
-            Answer(_answerQuestion),
+            Question(_questions[_questionIndex]['questionText'].toString()),
+            ...(_questions[_questionIndex]['answers'] as List<String>)
+                .map((answer) => Answer(_answerQuestion, answer))
+                .toList(),
           ],
         ),
       ),
