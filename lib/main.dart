@@ -45,6 +45,15 @@ class _SimpleQuizAppState extends State<SimpleQuizApp> {
         {'text': 'Noodle', 'score': 2},
       ],
     },
+    {
+      'questionText': 'Who\'s your favorite car brand?',
+      'answers': [
+        {'text': 'Honda', 'score': 3},
+        {'text': 'BMW', 'score': 4},
+        {'text': 'Toyota', 'score': 5},
+        {'text': 'Hyundai', 'score': 2},
+      ],
+    },
   ];
 
   var _totalScore = 0;
@@ -78,6 +87,6 @@ class _SimpleQuizAppState extends State<SimpleQuizApp> {
             questionIndex: _questionIndex,
             questions: _questions,
           )
-        : const Result();
+        : Result(_totalScore);
   }
 }
