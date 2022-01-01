@@ -20,17 +20,34 @@ class _SimpleQuizAppState extends State<SimpleQuizApp> {
   final _questions = const [
     {
       'questionText': 'What\'s your favorite color?',
-      'answers': ['Black', 'Red', 'Green', 'White']
+      'answers': [
+        {'text': 'Black', 'score': 5},
+        {'text': 'Red', 'score': 4},
+        {'text': 'Green', 'score': 3},
+        {'text': 'White', 'score': 2},
+      ],
     },
     {
       'questionText': 'What\'s your favorite animal?',
-      'answers': ['Rabbit', 'Snake', 'Elephant', 'Lion']
+      'answers': [
+        {'text': 'Rabbit', 'score': 3},
+        {'text': 'Snake', 'score': 5},
+        {'text': 'Elephant', 'score': 2},
+        {'text': 'Lion', 'score': 4},
+      ],
     },
     {
-      'questionText': 'What\'s your favorite food?',
-      'answers': ['Pizza', 'Steak', 'Rice', 'Noodles']
+      'questionText': 'Who\'s your favorite food?',
+      'answers': [
+        {'text': 'Pizza', 'score': 3},
+        {'text': 'Steak', 'score': 5},
+        {'text': 'Rice', 'score': 4},
+        {'text': 'Noodle', 'score': 2},
+      ],
     },
   ];
+
+  var _totalScore = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +61,9 @@ class _SimpleQuizAppState extends State<SimpleQuizApp> {
     );
   }
 
-  void _answerQuestion() {
+  void _answerQuestion(int score) {
+    _totalScore += score;
+
     setState(() {
       if (_questionIndex < _questions.length) {
         _questionIndex++;
